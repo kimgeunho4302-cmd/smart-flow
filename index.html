@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>스마트보장분석 시스템 고도화 · 플로우</title>
+<meta name="description" content="DB손해보험 스마트보장분석 고도화 제안요청서(2026-06-24) 23건을 화면 43개로 옮긴 인터랙티브 플로우차트와 페이지 와이어프레임">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <h1>스마트보장분석 시스템 고도화</h1>
+    <span>DB손해보험 제안요청서 · 2026-06-24</span>
+  </div>
+  <div class="spacer"></div>
+  <div class="viewtabs" role="tablist" aria-label="보기 전환">
+    <button role="tab" data-view="flow" aria-selected="true">플로우차트</button>
+    <button role="tab" data-view="page" aria-selected="false">페이지 와이어프레임</button>
+  </div>
+  <button class="tool" data-reqs>요구사항 23건</button>
+  <button class="tool icon" data-drawer aria-label="화면 목록">☰</button>
+</header>
+
+<div class="app" id="shell">
+  <aside class="side" aria-label="화면 목록">
+    <div class="search"><input id="q" type="search" placeholder="화면 검색 (제목·번호)" aria-label="화면 검색"></div>
+    <div class="list" id="navlist"></div>
+  </aside>
+  <div class="content">
+    <section class="canvas-wrap" id="flowview">
+      <div class="scenario-bar">
+        <select id="scenario" aria-label="시나리오 선택"></select>
+        <button class="tool" id="advance">다음 단계</button>
+        <span class="step-hint" id="step" hidden></span>
+      </div>
+      <div class="canvas-tools">
+        <button class="tool icon" id="zout" aria-label="축소">−</button>
+        <span class="zoom-read" id="zoom-read">100%</span>
+        <button class="tool icon" id="zin" aria-label="확대">+</button>
+        <button class="tool" id="fit">전체 보기</button>
+        <label class="tool" style="gap:6px"><input type="checkbox" id="showback" style="margin:0"> 메뉴 이동선</label>
+      </div>
+      <svg class="flow" id="flow" role="group" aria-label="스마트보장분석 전체 플로우"></svg>
+      <div class="legend">
+        <span><b>■</b> 화면 43개 · 동작 168개</span>
+        <span><b>주황 점</b> 기획 확인 필요</span>
+        <span>화면을 누르면 페이지로 이동합니다</span>
+      </div>
+    </section>
+    <main class="pageview" id="pageview" hidden></main>
+  </div>
+</div>
+
+<dialog id="req-dialog" aria-label="요구사항 23건">
+  <div class="dlg-head"><h2>제안요청서 요구사항 23건</h2><button aria-label="닫기">✕</button></div>
+  <div class="dlg-body" id="req-body"></div>
+</dialog>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
